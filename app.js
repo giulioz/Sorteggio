@@ -28,6 +28,7 @@ function clearTable() {
         settings.nums[i] = 0;
     }
     saveJson();
+    updateTable();
 }
 
 function saveJson() {
@@ -41,7 +42,6 @@ function saveJson() {
             $("#stopButton").toggleClass('btn-success btn-danger');
             console.log(data);
             console.log(textStatus);
-            updateTable();
         }
     });
 }
@@ -82,6 +82,7 @@ function slowCycle() {
         outpElement.innerHTML = finalValue;
         clearTimeout(animInterval);
         $("#stopButton").toggleClass('btn-success btn-danger');
+        updateTable();
     }
     else {
         outpElement.innerHTML = settings.classe[rand(settings.classe.length)];
