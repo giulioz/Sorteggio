@@ -18,7 +18,7 @@ function init() {
 function stopButton() {
     personId = getPersonId();
     settings.nums[personId]++;
-    saveJson();
+    saveJson(true);
     finalValue = settings.classe[personId];
     slowTextAnim();
 }
@@ -28,17 +28,17 @@ function clearTable() {
     for (i = 0; i < settings.classe.length; i++) {
         settings.nums[i] = 0;
     }
-    saveJson();
+    saveJson(false);
     updateTable();
 }
 
 function undo() {
     settings.nums[personId]--;
-    saveJson();
+    saveJson(false);
     updateTable();
 }
 
-function saveJson() {
+function saveJson(toggleBtn) {
     $.ajax({
         url: JSONUrl,
         type: "PUT",
@@ -46,7 +46,7 @@ function saveJson() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data, textStatus, jqXHR) {
-            $("#stopButton").toggleClass('btn-success btn-danger');
+            if (toggleBtn) $("#stopButton").toggleClass('btn-success btn-danger');
             console.log(data);
             console.log(textStatus);
         }
