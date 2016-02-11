@@ -1,4 +1,4 @@
-var JSON = "https://api.myjson.com/bins/2gfjd";
+var JSONUrl = 'https://api.myjson.com/bins/2gfjd';
 
 var settings;
 var outpElement, finalValue;
@@ -6,7 +6,7 @@ var animInterval, animDelay = 1;
 
 function init() {
     outpElement = document.getElementById('persona');
-    $.get(JSON, function(data, textStatus, jqXHR){
+    $.get(JSONUrl, function(data, textStatus, jqXHR){
         settings = data;
         console.log(data);
         updateTable();
@@ -32,7 +32,7 @@ function clearTable() {
 
 function saveJson() {
     $.ajax({
-        url: JSON,
+        url: JSONUrl,
         type: "PUT",
         data: JSON.stringify(settings),
         contentType: "application/json; charset=utf-8",
