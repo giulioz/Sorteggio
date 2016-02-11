@@ -46,20 +46,16 @@ function saveJson() {
     });
 }
 
-function rand(max) {
-    return Math.floor(max * Math.random());
-}
-
 function getPersonId() {
-    var wsum = 0, i;
+    var wsum = 0.0, i;
     for (i = 0; i < settings.classe.length; i++) {
-        wsum += 1 / Math.pow(2, settings.nums[i]);
+        wsum += (1.0 / Math.pow(2.0, settings.nums[i])) * 500.0;
     }
     
-    var x = rand(wsum);
+    var x = 1.0 + wsum * Math.random();
     var cw = 0;
     for (i = 0; i < settings.classe.length; i++) {
-        cw += 1 / Math.pow(2, settings.nums[i]);
+        cw += (1.0 / Math.pow(2.0, settings.nums[i])) * 500.0;
         if (x < cw) {
             return i;
         }
@@ -69,7 +65,7 @@ function getPersonId() {
 }
 
 function textAnim() {
-    animInterval = setInterval(function(){ outpElement.innerHTML = settings.classe[rand(settings.classe.length)]}, animDelay);
+    animInterval = setInterval(function(){ outpElement.innerHTML = settings.classe[Math.floor(settings.classe.length * Math.random())]}, animDelay);
 }
 
 function slowTextAnim() {
@@ -85,7 +81,7 @@ function slowCycle() {
         updateTable();
     }
     else {
-        outpElement.innerHTML = settings.classe[rand(settings.classe.length)];
+        outpElement.innerHTML = settings.classe[Math.floor(settings.classe.length * Math.random())];
         animDelay *= 1.1;
         setTimeout(slowCycle, animDelay);
     }
@@ -98,7 +94,7 @@ function updateTable() {
     for (i = 0; i < settings.classe.length; i++) {
         var tr = document.createElement('tr');
         var td = document.createElement('td');
-        td.appendChild(document.createTextNode(i));
+        td.appendChild(document.createTextNode(i + 1));
         tr.appendChild(td);
         td = document.createElement('td');
         td.appendChild(document.createTextNode(settings.classe[i]));
