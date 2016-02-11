@@ -2,6 +2,7 @@ var JSONUrl = 'https://api.myjson.com/bins/2gfjd';
 
 var settings;
 var outpElement, finalValue;
+var personId;
 var animInterval, animDelay = 1;
 
 function init() {
@@ -15,7 +16,7 @@ function init() {
 }
 
 function stopButton() {
-    var personId = getPersonId();
+    personId = getPersonId();
     settings.nums[personId]++;
     saveJson();
     finalValue = settings.classe[personId];
@@ -27,6 +28,12 @@ function clearTable() {
     for (i = 0; i < settings.classe.length; i++) {
         settings.nums[i] = 0;
     }
+    saveJson();
+    updateTable();
+}
+
+function undo() {
+    settings.nums[personId]--;
     saveJson();
     updateTable();
 }
