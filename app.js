@@ -89,7 +89,7 @@ function slowCycle() {
     }
     else {
         outpElement.innerHTML = settings.classe[Math.floor(settings.classe.length * Math.random())];
-        animDelay *= 1.05;
+        animDelay *= 1.07;
         setTimeout(slowCycle, animDelay);
     }
 }
