@@ -81,7 +81,7 @@ function slowTextAnim() {
 }
 
 function slowCycle() {
-    if (animDelay > 1000) {
+    if (animDelay > 700) {
         outpElement.innerHTML = finalValue;
         clearTimeout(animInterval);
         $("#stopButton").toggleClass('btn-success btn-danger');
@@ -89,7 +89,7 @@ function slowCycle() {
     }
     else {
         outpElement.innerHTML = settings.classe[Math.floor(settings.classe.length * Math.random())];
-        animDelay *= 1.1;
+        animDelay *= 1.05;
         setTimeout(slowCycle, animDelay);
     }
 }
