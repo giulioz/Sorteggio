@@ -36,6 +36,7 @@ function updateClass(i) {
 }
 
 function stopButton() {
+<<<<<<< HEAD
     if (!endAnim) {
         personId = getPersonId();
         settings.class[classe].nums[personId]++;
@@ -50,6 +51,13 @@ function stopButton() {
         endAnim = false;
         textAnim();
     }
+=======
+    personId = getPersonId();
+    settings.nums[personId]++;
+    saveJson(true);
+    finalValue = settings.classe[personId];
+    slowTextAnim();
+>>>>>>> origin/master
 }
 
 function clearTable() {
@@ -62,12 +70,20 @@ function clearTable() {
 }
 
 function undo() {
+<<<<<<< HEAD
     settings.class[classe].nums[personId]--;
+=======
+    settings.nums[personId]--;
+>>>>>>> origin/master
     saveJson(false);
     updateTable();
 }
 
+<<<<<<< HEAD
 function saveJson(butc) {
+=======
+function saveJson(toggleBtn) {
+>>>>>>> origin/master
     $.ajax({
         url: JSONUrl,
         type: "PUT",
@@ -75,7 +91,11 @@ function saveJson(butc) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data, textStatus, jqXHR) {
+<<<<<<< HEAD
             if (butc) $("#stopButton").toggleClass('btn-success btn-danger');
+=======
+            if (toggleBtn) $("#stopButton").toggleClass('btn-success btn-danger');
+>>>>>>> origin/master
             console.log(data);
             console.log(textStatus);
         }
@@ -111,7 +131,11 @@ function slowTextAnim() {
 }
 
 function slowCycle() {
+<<<<<<< HEAD
     if (animDelay > 800) {
+=======
+    if (animDelay > 700) {
+>>>>>>> origin/master
         outpElement.innerHTML = finalValue;
         clearTimeout(animInterval);
         $("#stopButton").toggleClass('btn-success btn-danger');
@@ -120,8 +144,13 @@ function slowCycle() {
         endAnim = true;
     }
     else {
+<<<<<<< HEAD
         outpElement.innerHTML = settings.class[classe].nomi[Math.floor(settings.class[classe].nomi.length * Math.random())];
         animDelay *= 1.1;
+=======
+        outpElement.innerHTML = settings.classe[Math.floor(settings.classe.length * Math.random())];
+        animDelay *= 1.07;
+>>>>>>> origin/master
         setTimeout(slowCycle, animDelay);
     }
 }
