@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="bootstrap.css">
 <link rel="stylesheet" type="text/css" href="app.css">
 <script src="jquery-2.2.0.min.js"></script>
+<script src="bootstrap.js"></script>
 <script src="app.js"></script>
 
 <div class="container">	
@@ -24,6 +25,17 @@
 		<a class="btn btn-lg btn-success" href="#" role="button" onclick="clearTable()">Pulisci</a>
 		<a class="btn btn-lg btn-success" href="#" role="button" onclick="undo()">Annulla Ultimo</a>
 	</p>
+	<div class="input-group">
+		Classe:
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="classSel">
+			</button>
+			<ul class="dropdown-menu" id="classSelList">
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<p class="text-center"><i>2016 - Giulio Zausa</i></p>
 </div>
 
 <script>init();</script>
