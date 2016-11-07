@@ -1,4 +1,4 @@
-var JSONUrl = 'https://jsonblob.com/api/jsonBlob/56c20effe4b01190df4f22a1';
+var JSONUrl = 'https://api.myjson.com/bins/yf9k';
 
 var settings, classe;
 var outpElement, classeSelector, classeSelectorList, finalValue;
